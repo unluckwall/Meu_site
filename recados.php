@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
     <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="./src/css/style.css" rel="stylesheet">
+    <link href="./src/css/recados.css" rel="stylesheet">
     <link rel="shortcut icon" href="./src/imagem/favicon.ico" type="image/x-icon">
 
 
@@ -20,26 +20,45 @@
   <body class="d-flex h-100 text-center text-bg-dark ">
     
 
-      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column backgroundcolor">
       <header class="mb-auto" style="font-family: 'Outfit', sans-serif;">
           <div>
           <img src="./src/imagem/banner.png" alt="banner" class="float-md-start mb-0"/>
           <nav class="nav nav-masthead justify-content-center float-md-end">
-              <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
               <a class="nav-link fw-bold py-1 px-0" href="freetime.html">Free Time</a>
               <a class="nav-link fw-bold py-1 px-0" href="#">França</a>
-              <a class="nav-link fw-bold py-1 px-0" href="comentarios.html">Contact</a>
+              <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="comentarios.html">Contact</a>
           </nav>
       </div>
       </header>
       
       <main class="px-3" style= "max-width: 35em; text-align: left; font-family: 'Outfit', sans-serif;">
-          <h1>Victor Hugo<img src="./src/imagem/bandeiradafr.png" width="10px" height="10px" class="imgx"></h1>
-          <p class="lead">Oi, eu me chamo Victor Hugo mas pode me chamar de Torugo. Posso dizer que sou uma pessoa calma mais tranquilo, quanto tenho um tempo livre eu gosto de jogar alguma coisa ou assistir alguma live. Mas de tudo e isso, aproveite o site bye bye.</p>
+        <section id="lista-recados">
+                <div class="container">                
+                <h1>Meus recados</h1>
+                <p><a href="recados-form.html">Clique aqui</a> para deixar o seu recado</p><br>
+                
+                <?php
+                    $sql = "SELECT * FROM recados WHERE ativo like'Y' ";
+                    $conexao = new PDO('mysql:host=127.0.0.1;dbname=site-pessoal','root','');
+                    $resultado = $conexao->query($sql);
+                    $lista = $resultado->fetchAll();
+                ?>
+
+                <?php foreach ($lista as $linha): ?>
+                    <div class="balao">
+                        <h4 class="nome"><?php echo $linha['nome'] ?></h4>
+                        <p class="recado"><?php echo $linha['recado'] ?></p>			
+                    </div>
+                <?php endforeach ?>
+
+                </div>
+            </section>        
       </main>
 
       <footer class="mt-auto text-white-50">
-          <p style="text-align: left;">Dev, by  Victor H. #GoFRA&#127467;&#127479;<img src="./src/imagem/bandeiradafr.png" width="10px" height="10px"></p>
+          <p style="text-align: left;">Dev, by  Victor H.</p>
       </footer>
       </div>
     
