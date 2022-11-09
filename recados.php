@@ -28,16 +28,16 @@
               <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
               <a class="nav-link fw-bold py-1 px-0" href="freetime.html">Free Time</a>
               <a class="nav-link fw-bold py-1 px-0" href="#">França</a>
-              <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="comentarios.html">Contact</a>
+              <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="recados.php">Contact</a>
           </nav>
       </div>
       </header>
       
-      <main class="px-3" style= "max-width: 35em; text-align: left; font-family: 'Outfit', sans-serif;">
+      <main class="px-3" style= " text-align: left; font-family: 'Outfit', sans-serif;">
         <section id="lista-recados">
                 <div class="container">                
-                <h1>Meus recados</h1>
-                <p><a href="recados-form.html">Clique aqui</a> para deixar o seu recado</p><br>
+                <h1 style="text-align: center">Meus recados</h1>
+                <p style="text-align: center"><a href="recados-form.html">Clique aqui</a> para deixar o seu recado</p><br>
                 
                 <?php
                     $sql = "SELECT * FROM recados WHERE ativo like'Y' ";
@@ -46,14 +46,19 @@
                     $lista = $resultado->fetchAll();
                 ?>
 
+              <div class="card  mb-3" style="max-width: 18rem;">
                 <?php foreach ($lista as $linha): ?>
-                    <div class="balao">
-                        <h4 class="nome"><?php echo $linha['nome'] ?></h4>
-                        <p class="recado"><?php echo $linha['recado'] ?></p>			
+                    <div class="caixa">
+                      <div class="card-header text-bg-primary"><h4 style="text-align: end;
+                                  text-transform: capitalize;"><?php echo $linha['nome'] ?></h4>
+                      </div>
+                      <div class="card-body text-dark">
+                        <p class="card-text-success"><?php echo $linha['recado'] ?></p>
+                      </div>			
                     </div>
                 <?php endforeach ?>
-
                 </div>
+              </div>
             </section>        
       </main>
 

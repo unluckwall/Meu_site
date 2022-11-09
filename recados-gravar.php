@@ -14,6 +14,6 @@ $conexao = new PDO('mysql:host=127.0.0.1;dbname=site-pessoal', 'root', '');
 $conexao->exec($sql);
 
 echo "<h3>Recado enviado com sucesso!</h3><br>";
-echo "<a href='index.html'>Voltar</a>";
+echo "<a href='recados.php'>Voltar</a>";
 
 ?>
