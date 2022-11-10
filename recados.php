@@ -27,7 +27,6 @@
           <nav class="nav nav-masthead justify-content-center float-md-end">
               <a class="nav-link fw-bold py-1 px-0" href="index.html">Home</a>
               <a class="nav-link fw-bold py-1 px-0" href="freetime.html">Free Time</a>
-              <a class="nav-link fw-bold py-1 px-0" href="#">França</a>
               <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="recados.php">Contact</a>
           </nav>
       </div>
@@ -37,7 +36,7 @@
         <section id="lista-recados">
                 <div class="container">                
                 <h1 style="text-align: center">Meus recados</h1>
-                <p style="text-align: center"><a href="recados-form.html">Clique aqui</a> para deixar o seu recado</p><br>
+                <p style="text-align: center"><a href="comentarios.html">Clique aqui</a> para deixar o seu recado</p><br>
                 
                 <?php
                     $sql = "SELECT * FROM recados WHERE ativo like'Y' ";
@@ -46,19 +45,19 @@
                     $lista = $resultado->fetchAll();
                 ?>
 
-              <div class="card  mb-3" style="max-width: 18rem;">
-                <?php foreach ($lista as $linha): ?>
-                    <div class="caixa">
-                      <div class="card-header text-bg-primary"><h4 style="text-align: end;
-                                  text-transform: capitalize;"><?php echo $linha['nome'] ?></h4>
+                  <div class="d-flex flex-wrap justify-content-center" >
+                    <?php foreach ($lista as $linha) : ?>
+                      <div class="card border-success mb-3 m-2" style="width: 18rem;">
+                        <div class="card-body text-dark">
+                          <h5 class="card-title text-primary"><?php echo $linha['nome'] ?> </h5>
+                          <p class="card-text"><?php echo $linha['recado'] ?></p>
+                        </div>
+                        <div class="card-footer">
+                          <small class="text-muted"><?php echo $linha['turma'] ?></small>
+                        </div>
                       </div>
-                      <div class="card-body text-dark">
-                        <p class="card-text-success"><?php echo $linha['recado'] ?></p>
-                      </div>			
-                    </div>
-                <?php endforeach ?>
-                </div>
-              </div>
+                    <?php endforeach ?>
+                  </div> 
             </section>        
       </main>
 

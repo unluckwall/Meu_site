@@ -4,17 +4,13 @@ body {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   width: 100%;
   height: 100%;
-  background-image: url('../imagem/bob.png');
+  background-image: url('../imagem/witcher.png');
   background-repeat: no-repeat;
   background-size: cover;
-  
 
 
 }
 
-.imgx{
-  vertical-align: top;
-}
 
 
 .nav-masthead .nav-link {
